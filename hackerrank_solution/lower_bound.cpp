@@ -44,3 +44,23 @@ int main() {
     }
     return 0;
 }
+
+//best solution without many loop
+int main() {
+    int n, q; std::cin >> n;
+    std::vector<int> vec(n);
+    for (auto &i : vec) std::cin >> i;
+    
+    std::cin >> q;
+    for (int i = 0; i < q; i++) {
+        int n; std::cin >> n;
+        auto it = std::lower_bound(vec.begin(), vec.end(), n);
+        if (*it == n)
+            std::cout << "Yes ";
+        else
+            std::cout << "No ";
+        std::cout << (it - vec.begin()) + 1 << '\n';  
+    }
+    
+    return 0;
+}
